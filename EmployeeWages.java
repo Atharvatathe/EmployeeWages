@@ -1,38 +1,48 @@
 public class EmployeeWages
 {
  public static void main(String[] args)
+	public static void main(String[] args)
 	{
 		int IS_PRESENT_FULL_TIME = 1;
 		int IS_PRESENT_PART_TIME = 2;
 		int EMP_RATE_PER_HR = 20;
-		int TOTAL_WORKING_DAYS=20;
-		int salary = 0;
+		int MAX_WORKING_DAYS=20;
+		int MAX_WORKING_HOUR=100;
+		
+		int totalworkingHours=0 ;
+		int totalworkingDays=0 ;
+ 		int salary = 0;
+		int empHrs;
 		
 		
-		for(int counter=1; counter<=TOTAL_WORKING_DAYS; counter++)
+		while((totalworkingDays < MAX_WORKING_DAYS ) && ( totalworkingHours < MAX_WORKING_HOUR))
 		{
 		
 			int empcheck = (int)Math.floor(Math.random() * 10) % 3;
 			switch(empcheck)
 			{
 				case 1:
-					int empHrs = 8;
-					salary = empHrs * EMP_RATE_PER_HR ;
-					System.out.println("Full time employee Salary: " +salary);
+					empHrs = 8;
+					totalworkingHours= totalworkingHours + empHrs ;
+					totalworkingDays++;
 					break ;
 			
 				case 2:
 					empHrs = 4;
-					salary = empHrs * EMP_RATE_PER_HR ;
-					System.out.println("Part time employee Salary: " +salary);
+					totalworkingHours= totalworkingHours + empHrs ;
+					totalworkingDays++;
 					break;
 			
 				default:
-					salary=0;
-					System.out.println("no Salary: " +salary);
+					empHrs=0;
+					totalworkingHours= totalworkingHours + empHrs ;
+					totalworkingDays++;
 					break;
 			}
+			
 		}
+		salary = totalworkingHours * EMP_RATE_PER_HR; 
+		System.out.println("salary :"+salary);
 	}
 }
 
