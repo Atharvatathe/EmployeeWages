@@ -16,6 +16,9 @@ public class EmployeeWages
 			salary=0;
 
 		System.out.println("Salary: " +salary);
+
+   	}
 }
+
 
 
