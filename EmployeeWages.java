@@ -19,17 +19,14 @@ public class EmployeeWages
 	
 	}
 	
-	public static void main(String[] args)
+	public void companyDetails(EmployeeWages obj)
 	{
-
-		EmployeeWages dMart = new EmployeeWages("Dmart",20,20,100);
-	
 		int totalworkingHours=0 ;
 		int totalworkingDays=0 ;
  		int salary = 0;
 		int empHrs=0;
 		
-		while((totalworkingDays < dMart.numOfworkingDays ) && ( totalworkingHours < dMart.maxHoursPerMonth))
+		while((totalworkingDays < obj.numOfworkingDays ) && ( totalworkingHours < obj.maxHoursPerMonth))
 		{
 		
 			int empcheck = (int)Math.floor(Math.random() * 10) % 3;
@@ -55,11 +52,24 @@ public class EmployeeWages
 			}
 			
 		}
-		salary = totalworkingHours * dMart.empRatePerHour; 
-		System.out.println("Employee salary of Company " + dMart.company + " is " +salary);
+		salary = totalworkingHours * obj.empRatePerHour; 
+		System.out.println("Employee salary of Company " + obj.company + " is " +salary);
+		
 	}
 	
+	
+	public static void main(String[] args)
+	{
 
+		EmployeeWages dMart = new EmployeeWages("Dmart",20,20,100);
+		EmployeeWages relince = new EmployeeWages("Relince",30,20,100);
+		EmployeeWages tata = new EmployeeWages("TATA",40,25,125);
+		
+		dMart.companyDetails(dMart);
+		tata.companyDetails(tata);
+		relince.companyDetails(relince);
+		
+	}
 }
 
 
