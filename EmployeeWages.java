@@ -10,7 +10,7 @@ public class EmployeeWages
 	private final int maxHoursPerMonth;
     
 	
-	public EmployeeWageObject(String company,int empRatePerHour,int numOfworkingDays,int maxHoursPerMonth)
+	public EmployeeWages(String company,int empRatePerHour,int numOfworkingDays,int maxHoursPerMonth)
 	{
 		this.company = company;
 		this.empRatePerHour = empRatePerHour;
@@ -22,8 +22,8 @@ public class EmployeeWages
 	public static void main(String[] args)
 	{
 
-		EmployeeWageObject dMart = new EmployeeWageObject("Dmart",20,20,100);
-		
+		EmployeeWages dMart = new EmployeeWages("Dmart",20,20,100);
+	
 		int totalworkingHours=0 ;
 		int totalworkingDays=0 ;
  		int salary = 0;
