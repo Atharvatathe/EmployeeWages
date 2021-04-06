@@ -3,6 +3,10 @@ public class EmployeeWages
 	
 	public static final int IS_PRESENT_PART_TIME = 1;
 	public static final int IS_PRESENT_FULL_TIME = 2;
+	public	int totalworkingHours=0 ;
+	public	int totalworkingDays=0 ;
+ 	public	int salary = 0;
+	public	int empHrs=0;
 	
 	private final String company;
 	private final int empRatePerHour;
@@ -21,10 +25,6 @@ public class EmployeeWages
 	
 	public void companyDetails(EmployeeWages obj)
 	{
-		int totalworkingHours=0 ;
-		int totalworkingDays=0 ;
- 		int salary = 0;
-		int empHrs=0;
 		
 		while((totalworkingDays < obj.numOfworkingDays ) && ( totalworkingHours < obj.maxHoursPerMonth))
 		{
