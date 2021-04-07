@@ -14,6 +14,7 @@ public class CompanyEmpWage
 	public final int numOfworkingDays;
 	public final int maxHoursPerMonth; 
 	public int totalEmpWage;
+
 	
 	
 	public CompanyEmpWage(String company,int empRatePerHour,int numOfworkingDays,int maxHoursPerMonth)
@@ -36,5 +37,8 @@ public class CompanyEmpWage
 	{
 		return "Total Emp Wage for Company: "+company+" is: " +
 				totalEmpWage;
+
 	}
+	
+	
 }

@@ -5,6 +5,7 @@ public class EmployeeWages implements IcomputeEmpWage
 	
 	public static final int IS_PRESENT_PART_TIME = 1;
 	public static final int IS_PRESENT_FULL_TIME = 2;
+	public int dailyWage = 0;
 	
 	private int numOfCompany = 0;
 	private LinkedList<CompanyEmpWage> companyEmpWageList;
@@ -57,7 +58,9 @@ public class EmployeeWages implements IcomputeEmpWage
 			
 		
 			totalEmpHrs += empHrs;
+			dailyWage = empHrs * companyEmpWage.empRatePerHour ;
 			System.out.println("TotalWrking Days: " +totalworkingDays  + "Emp Hr: " +empHrs);
+			System.out.println("Daily wages: " +dailyWage); 
 		}
 		return totalEmpHrs * companyEmpWage.empRatePerHour;
 		
