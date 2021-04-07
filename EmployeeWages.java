@@ -1,4 +1,4 @@
-public class EmployeeWages
+public class EmployeeWages implements IcomputeEmpWage 
 {
 	
 	public static final int IS_PRESENT_PART_TIME = 1;

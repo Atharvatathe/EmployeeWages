@@ -1,3 +1,11 @@
+interface IcomputeEmpWage
+{
+	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfworkingDays, int maxHoursPerMonth);
+	
+}
+
+
+
 public class CompanyEmpWage
 {
 	public final String company;
@@ -13,6 +21,7 @@ public class CompanyEmpWage
 		this.empRatePerHour = empRatePerHour;
 		this.numOfworkingDays = numOfworkingDays;
 		this.maxHoursPerMonth = maxHoursPerMonth;
+		totalEmpWage = 0;
 	
 	}
 	
