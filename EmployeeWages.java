@@ -9,16 +9,19 @@ public class EmployeeWages implements IcomputeEmpWage
 	
 	private int numOfCompany = 0;
 	private LinkedList<CompanyEmpWage> companyEmpWageList;
+	private Map<String,CompanyEmpWage> companyToEmpWageMap;
 	
 	public EmployeeWages()
 	{
-		companyEmpWageList = new LinkedList<>();;
+		companyEmpWageList = new LinkedList<>();
+		companyToEmpWageMap = new HashMap<>();
 	}
 	
 	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfworkingDays, int maxHoursPerMonth)
     {
 		CompanyEmpWage companyEmpWage = new CompanyEmpWage(company,empRatePerHour,numOfworkingDays,maxHoursPerMonth);
 		companyEmpWageList.add(companyEmpWage);
+		companyToEmpWageMap.put(company,companyEmpWage);
 	}
 	
 	
@@ -33,6 +36,10 @@ public class EmployeeWages implements IcomputeEmpWage
 		
 	}
 	
+	public int getTotalWage(String company)
+	{
+		return companyToEmpWageMap.get(company).totalEmpWage;
+	}
 	
 	public int computeEmpWage(CompanyEmpWage companyEmpWage)
 	{
@@ -75,6 +82,8 @@ public class EmployeeWages implements IcomputeEmpWage
 		empWageBuilder.addCompanyEmpWage("Relince",30,4,20);
 		
 		empWageBuilder.computeEmpWage();
+		
+		System.out.println("Total Emp wage for Dmart company: " +empWageBuilder.getTotalWage("Dmart"));
 	}
 }
 
