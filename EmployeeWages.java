@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class EmployeeWages implements IcomputeEmpWage 
 {
 	
@@ -5,32 +7,33 @@ public class EmployeeWages implements IcomputeEmpWage
 	public static final int IS_PRESENT_FULL_TIME = 2;
 	
 	private int numOfCompany = 0;
-	private CompanyEmpWage[] companyEmpWageArray;
+	private LinkedList<CompanyEmpWage> companyEmpWageList;
 	
 	public EmployeeWages()
 	{
-		companyEmpWageArray = new CompanyEmpWage[5];
+		companyEmpWageList = new LinkedList<>();;
 	}
 	
 	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfworkingDays, int maxHoursPerMonth)
     {
-		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company,empRatePerHour,numOfworkingDays,maxHoursPerMonth);
-		numOfCompany++;
+		CompanyEmpWage companyEmpWage = new CompanyEmpWage(company,empRatePerHour,numOfworkingDays,maxHoursPerMonth);
+		companyEmpWageList.add(companyEmpWage);
 	}
 	
 	
-	private void companyDetails()
+	public void computeEmpWage()
 	{
-		for(int i = 0; i < numOfCompany; i++)
+		for(int i = 0; i < companyEmpWageList.size(); i++)
 		{
-			companyEmpWageArray[i].setTotalEmpWage(this.companyDetails(companyEmpWageArray[i]));
-			System.out.println(companyEmpWageArray[i]);
+			CompanyEmpWage companyEmpWage = companyEmpWageList.get(i);
+			companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
+			System.out.println(companyEmpWage);
 		}
 		
 	}
 	
 	
-	private int companyDetails(CompanyEmpWage companyEmpWage)
+	public int computeEmpWage(CompanyEmpWage companyEmpWage)
 	{
 		int empHrs=0, totalEmpHrs=0, totalworkingDays=0;
 		while((totalEmpHrs < companyEmpWage.maxHoursPerMonth ) && ( totalworkingDays < companyEmpWage.numOfworkingDays))
@@ -64,11 +67,11 @@ public class EmployeeWages implements IcomputeEmpWage
 	public static void main(String[] args)
 	{
 
-		EmployeeWages empWageBuilder = new EmployeeWages();
-		empWageBuilder.addCompanyEmpWage("Dmart",20,20,100);
-		empWageBuilder.addCompanyEmpWage("Relince",30,20,100);
+		IcomputeEmpWage empWageBuilder = new EmployeeWages();
+		empWageBuilder.addCompanyEmpWage("Dmart",20,2,10);
+		empWageBuilder.addCompanyEmpWage("Relince",30,4,20);
 		
-		empWageBuilder.companyDetails();
+		empWageBuilder.computeEmpWage();
 	}
 }
 
